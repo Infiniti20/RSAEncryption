@@ -2,14 +2,16 @@ from sympy import randprime
 import hashlib
 
 class RSAEncryption():
+ def __init__(bits,self):
+  self.bits=2**bits
  def CREATE_KEYS(self):
   N = 257
   while N > 256:
-    prime1 = randprime(2,256)
-    prime2 = randprime(2,256)
+    prime1 = randprime(2,self.bits)
+    prime2 = randprime(2,self.bits)
     if prime1 == prime2:
-        prime1 = randprime(2,256)
-        prime2 = randprime(2,256)
+        prime1 = randprime(2,self.bits)
+        prime2 = randprime(2,self.bits)
     N = prime1 * prime2
   E = (prime1-1)*(prime2-1)
   pub_key = [randprime(2,E),N]
