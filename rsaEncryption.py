@@ -2,7 +2,7 @@ from sympy import randprime
 import hashlib
 
 class RSAEncryption():
- def __init__(bits,self):
+ def __init__(bits=8,self):
   self.bits=2**bits
  def CREATE_KEYS(self):
   N = 257
