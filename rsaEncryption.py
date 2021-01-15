@@ -7,7 +7,7 @@ class RSAEncryption():
     def __init__(self, bits=8):
         self.bits = 2 ** bits
 
-    def CREATE_KEYS(self):
+    def create_keys(self):
         N = self.bits + 1
         while N > self.bits:
             prime1 = randprime(2, self.bits)
@@ -26,7 +26,7 @@ class RSAEncryption():
         priv_key = [i, N]
         return pub_key, priv_key
 
-    def ENCRYPT(self, message, key):
+    def encrypt(self, message, key):
         text = []
         for letter in message:
             asciiVal = ord(letter)
@@ -34,7 +34,7 @@ class RSAEncryption():
             text.append(enc)
         return text
 
-    def DECRYPT(self, message, key):
+    def decrypt(self, message, key):
         text = ""
         for letter in message:
             val = letter
@@ -49,14 +49,14 @@ class RSAEncryption():
             asciiVal.append(int(ord(letter)))
         return asciiVal
 
-    def SIGN(self, message, key):
+    def sign(self, message, key):
         enc_message = message.encode()
         signature = (hashlib.sha3_224(enc_message).hexdigest())
         # print(signature)
         signature = self.encrypt(signature, key)
         return message, signature
 
-    def VERIFY(self, message, signature, key):
+    def verify(self, message, signature, key):
         signature = self.decrypt(signature, key)
         message = message.encode()
         hash = hashlib.sha3_224(message).hexdigest()
