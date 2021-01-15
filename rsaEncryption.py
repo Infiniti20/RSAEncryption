@@ -43,7 +43,7 @@ class RSAEncryption():
             text = text + asciiChar
         return text
 
-    def asciiConvert(self, text):
+    def ascii_convert(self, text):
         asciiVal = []
         for letter in text:
             asciiVal.append(int(ord(letter)))
