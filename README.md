@@ -2,6 +2,10 @@
 
 A `Python` script for RSA encryption and decryption. Supports `signing` and `verifying`.
 
+### Create Keys
+Usage: `<class name>.CREATE_KEYS()`
+`CREATE_KEYS` returns a tuple, that contains 2 lists: the private key pair, and the public key pair.
+
 ### Encryption
 Usage: `<class name>.ENCRYPT(<plaintext>,<key>)`
 
