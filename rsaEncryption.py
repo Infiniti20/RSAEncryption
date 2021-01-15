@@ -2,7 +2,7 @@ from sympy import randprime
 import hashlib
 
 class RSAEncryption():
- def __init__(bits=8,self):
+ def __init__(self, bits=8):
   self.bits=2**bits
  def CREATE_KEYS(self):
   N = self.bits+1
@@ -22,7 +22,7 @@ class RSAEncryption():
     i+=1
   priv_key = [i,N]
   return pub_key,priv_key
- 
+
  def ENCRYPT(self,message,key):
   text=[]
   for letter in message:
@@ -38,13 +38,13 @@ class RSAEncryption():
         asciiChar = chr(decrypt_letter)
         text = text + asciiChar
   return text
- 
+
  def asciiConvert(self,text):
    asciiVal=[]
    for letter in text:
      asciiVal.append(int(ord(letter)))
    return asciiVal
- 
+
  def SIGN(self,message,key):
   enc_message=message.encode()
   signature=(hashlib.sha3_224(enc_message).hexdigest())
