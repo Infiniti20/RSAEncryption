@@ -5,8 +5,8 @@ class RSAEncryption():
  def __init__(bits=8,self):
   self.bits=2**bits
  def CREATE_KEYS(self):
-  N = 257
-  while N > 256:
+  N = self.bits+1
+  while N > self.bits:
     prime1 = randprime(2,self.bits)
     prime2 = randprime(2,self.bits)
     if prime1 == prime2:
